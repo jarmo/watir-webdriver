@@ -13,3 +13,12 @@ if [[ "$WATIR_WEBDRIVER_BROWSER" = "chrome" ]]; then
   curl -L "http://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux/$CHROME_REVISION/chrome-linux.test/chromedriver" > chrome-linux/chromedriver
   chmod +x chrome-linux/chromedriver
 fi
+
+if [[ "$WATIR_WEBDRIVER_BROWSER" = "phantomjs" ]]; then
+  sudo apt-get install build-essential chrpath git-core libssl-dev libfontconfig1-dev
+  cd ext/phantomjs
+  ./build.sh --confirm
+  PATH=$PATH:$PWD/bin/
+  chmod +x bin/phantomjs
+  cd ../../
+fi
