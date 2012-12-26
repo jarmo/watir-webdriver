@@ -17,7 +17,7 @@ fi
 if [[ "$WATIR_WEBDRIVER_BROWSER" = "phantomjs" ]]; then
   sudo apt-get install build-essential chrpath git-core libssl-dev libfontconfig1-dev
   cd ext/phantomjs
-  ./build.sh --confirm
+  ./build.sh --confirm --jobs 1
   PATH=$PATH:$PWD/bin/
   chmod +x bin/phantomjs
   cd ../../
