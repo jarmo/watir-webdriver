@@ -3,8 +3,6 @@
 set -e
 set -x
 
-sleep 20m
-
 CHROME_REVISION=142910
 sh -e /etc/init.d/xvfb start && git submodule update --init
 
