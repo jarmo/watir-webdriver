@@ -17,6 +17,6 @@ fi
 if [[ "$WATIR_WEBDRIVER_BROWSER" = "phantomjs" ]]; then
   curl -L -O "http://phantomjs.googlecode.com/files/phantomjs-1.8.1-linux-i686.tar.bz2"
   bzip2 -cd phantomjs-1.8.1-linux-i686.tar.bz2 | tar xvf -
-  PATH=$PATH:$PWD/phantomjs-1.8.1-linux-i686/bin/
+  PATH=$PWD/phantomjs-1.8.1-linux-i686/bin/:$PATH
   chmod +x phantomjs-1.8.1-linux-i686/bin/phantomjs
 fi
