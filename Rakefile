@@ -8,8 +8,8 @@ Bundler::GemHelper.install_tasks
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.ruby_opts  = "-I lib:spec"
-  spec.rspec_opts = %w[--color --require fuubar --format Fuubar]
-  spec.pattern    = Dir.glob('spec/**/*_spec.rb').select {|f| File.basename(f) =~ /filefield/}
+  spec.rspec_opts = %w[--color --require fuubar --format Fuubar -fd]
+  spec.pattern    = 'spec/watirspec/filefield_spec.rb'
 end
 
 namespace :spec do
