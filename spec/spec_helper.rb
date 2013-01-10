@@ -2,6 +2,8 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
+$DEBUG=true
+
 if ENV['coverage']
   raise "simplecov only works on Ruby 1.9" unless RUBY_VERSION =~ /^1\.9/
 
