@@ -14,6 +14,10 @@ require 'locator_spec_helper'
 require 'rubygems'
 require 'rspec'
 
+RSpec.configure do |config|
+  config.order = :random
+end
+
 include Watir
 include Watir::Exception
 
