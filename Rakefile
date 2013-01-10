@@ -9,7 +9,7 @@ require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.ruby_opts  = "-I lib:spec"
   spec.rspec_opts = %w[--color --require fuubar --format Fuubar -fd]
-  spec.pattern    = 'spec/watirspec/filefield_spec.rb'
+  spec.pattern    = 'spec/**/*_spec.rb'
 end
 
 namespace :spec do
