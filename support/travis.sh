@@ -28,4 +28,5 @@ if [[ "$WATIR_WEBDRIVER_BROWSER" = "internet_explorer" ]]; then
   unzip -d Sauce-Connect Sauce-Connect-latest.zip
   java -version
   java -jar Sauce-Connect/Sauce-Connect.jar $SAUCE_LABS_USER $SAUCE_LABS_ACCESS_KEY &
+  sleep 60
 fi
