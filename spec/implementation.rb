@@ -123,6 +123,7 @@ class ImplementationConfig
       [:internet_explorer, {}]
     else
       capabilities = Selenium::WebDriver::Remote::Capabilities.internet_explorer
+      capabilities.name = "Watir-WebDriver project"
       capabilities.version = "9"
       capabilities.platform = "Windows 2008"
       [:remote, {:url => "http://#{ENV["SAUCE_LABS_USER"]}:#{ENV["SAUCE_LABS_ACCESS_KEY"]}@ondemand.saucelabs.com:80/wd/hub", :desired_capabilities => capabilities}]
