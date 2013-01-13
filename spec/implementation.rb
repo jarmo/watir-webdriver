@@ -27,6 +27,8 @@ class ImplementationConfig
              firefox_args
            when :chrome
              chrome_args
+           when :internet_explorer
+             internet_explorer_args
            when :remote
              remote_args
            else
@@ -47,7 +49,7 @@ class ImplementationConfig
   end
 
   def ie?
-    [:ie, :internet_explorer].include? browser
+    [:internet_explorer].include? browser
   end
 
   def safari?
@@ -116,6 +118,17 @@ class ImplementationConfig
     [:chrome, opts]
   end
 
+  def internet_explorer_args
+    if Selenium::WebDriver::Platform.windows?
+      [:internet_explorer, {}]
+    else
+      capabilities = Selenium::WebDriver::Remote::Capabilities.internet_explorer
+      capabilities.version = "9"
+      capabilities.platform = "Windows 2008"
+      [:remote, {:url => "http://jarmo:8c82695c-d923-4bc4-9102-d4159925e7a5@ondemand.saucelabs.com:80/wd/hub", :desired_capabilities => capabilities}]
+    end
+  end
+
   def remote_args
     [:remote, {:url => ENV["WATIR_WEBDRIVER_REMOTE_URL"] || "http://127.0.0.1:8080"}]    
   end
@@ -149,7 +162,7 @@ class ImplementationConfig
   end
 
   def native_events_by_default?
-    Selenium::WebDriver::Platform.windows? && [:firefox, :ie].include?(browser)
+    Selenium::WebDriver::Platform.windows? && [:firefox, :internet_explorer].include?(browser)
   end
 
   class SelectorListener < Selenium::WebDriver::Support::AbstractEventListener

@@ -1,20 +1,12 @@
 rvm:
-  - 1.9.2
   - 1.9.3
-  - ruby-head
 notifications:
   recipients:
     - jarmo.p@gmail.com
 before_script:
   - support/travis.sh
 env:
-  - WATIR_WEBDRIVER_BROWSER=firefox
-  - WATIR_WEBDRIVER_BROWSER=firefox ALWAYS_LOCATE=false
-  - WATIR_WEBDRIVER_BROWSER=firefox PREFER_CSS=1 SELECTOR_STATS=1
-  - WATIR_WEBDRIVER_BROWSER=chrome
-  - WATIR_WEBDRIVER_BROWSER=chrome ALWAYS_LOCATE=false
-  - WATIR_WEBDRIVER_BROWSER=chrome PREFER_CSS=1 SELECTOR_STATS=1
-  - WATIR_WEBDRIVER_BROWSER=phantomjs
+  - WATIR_WEBDRIVER_BROWSER=internet_explorer
 matrix:
   allow_failures:
     - rvm: ruby-head
