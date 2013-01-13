@@ -6,7 +6,7 @@ notifications:
 before_script:
   - support/travis.sh
 env:
-  - WATIR_WEBDRIVER_BROWSER=internet_explorer
+  - WATIR_WEBDRIVER_BROWSER=internet_explorer SAUCE_LABS_USER=jarmo SAUCE_LABS_ACCESS_KEY=8c82695c-d923-4bc4-9102-d4159925e7a5
 matrix:
   allow_failures:
     - rvm: ruby-head

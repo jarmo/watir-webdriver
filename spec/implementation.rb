@@ -125,7 +125,7 @@ class ImplementationConfig
       capabilities = Selenium::WebDriver::Remote::Capabilities.internet_explorer
       capabilities.version = "9"
       capabilities.platform = "Windows 2008"
-      [:remote, {:url => "http://jarmo:8c82695c-d923-4bc4-9102-d4159925e7a5@ondemand.saucelabs.com:80/wd/hub", :desired_capabilities => capabilities}]
+      [:remote, {:url => "http://#{ENV["SAUCE_LABS_USER"]}:#{ENV["SAUCE_LABS_ACCESS_KEY"]}@ondemand.saucelabs.com:80/wd/hub", :desired_capabilities => capabilities}]
     end
   end
 

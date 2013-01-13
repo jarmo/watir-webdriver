@@ -23,6 +23,9 @@ if [[ "$WATIR_WEBDRIVER_BROWSER" = "phantomjs" ]]; then
 fi
 
 if [[ "$WATIR_WEBDRIVER_BROWSER" = "internet_explorer" ]]; then
+  sudo apt-get install -y unzip
+  curl -L -O "http://saucelabs.com/downloads/Sauce-Connect-latest.zip"
+  unzip -d Sauce-Connect Sauce-Connect-latest.zip
   java -version
-  exit 1
+  java -jar Sauce-Connect/Sauce-Connect.jar $SAUCE_LABS_USER $SAUCE_LABS_ACCESS_KEY &
 fi
