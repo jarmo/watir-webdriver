@@ -27,6 +27,6 @@ if [[ "$WATIR_WEBDRIVER_BROWSER" = "internet_explorer" ]]; then
   curl -L -O "http://saucelabs.com/downloads/Sauce-Connect-latest.zip"
   unzip -d Sauce-Connect Sauce-Connect-latest.zip
   java -version
-  java -jar Sauce-Connect/Sauce-Connect.jar $SAUCE_LABS_USER $SAUCE_LABS_ACCESS_KEY &
-  sleep 60
+  java -jar Sauce-Connect/Sauce-Connect.jar $SAUCE_LABS_USER $SAUCE_LABS_ACCESS_KEY 1>sauce-connect.out &
+  while `cat sauce-connect.out | grep -c "Connected! You may start your tests."`; do sleep 1; done
 fi
