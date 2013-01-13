@@ -21,3 +21,8 @@ if [[ "$WATIR_WEBDRIVER_BROWSER" = "phantomjs" ]]; then
   sudo cp phantomjs-1.8.1-linux-i686/bin/phantomjs /usr/local/phantomjs/bin/phantomjs
   phantomjs --version
 fi
+
+if [[ "$WATIR_WEBDRIVER_BROWSER" = "internet_explorer" ]]; then
+  java -version
+  exit 1
+fi
