@@ -30,5 +30,5 @@ if [[ "$WATIR_WEBDRIVER_BROWSER" = "internet_explorer" ]]; then
   unzip -d Sauce-Connect Sauce-Connect-latest.zip
   java -version
   java -jar Sauce-Connect/Sauce-Connect.jar $SAUCE_LABS_USER $SAUCE_LABS_ACCESS_KEY 1>sauce-connect.out &
-  while ! grep -q "Connected! You may start your tests." sauce-connect.out; do  sleep 1; done
+  while ! grep -q "Connected! You may start your tests." sauce-connect.out; do sleep 1; done
 fi
