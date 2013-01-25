@@ -6,7 +6,7 @@ require 'watir-webdriver/version'
 Bundler::GemHelper.install_tasks
 
 require 'rspec/core/rake_task'
-unless ENV["TRAVIS"]
+unless ENV["TRAVIS"] && ENV["WATIR_WEBDRIVER_BROWSER"] == "internet_explorer"
   RSpec::Core::RakeTask.new(:spec) do |spec|
     spec.ruby_opts  = "-I lib:spec"
     spec.rspec_opts = %w[--color --require fuubar --format Fuubar]
