@@ -11,7 +11,7 @@ class ImplementationConfig
     set_guard_proc
     add_html_routes
 
-    WatirSpec.always_use_server = mobile? || ie? || safari? || phantomjs? || remote?
+    WatirSpec.always_use_server = mobile? || safari? || phantomjs? || remote?
     WatirSpec.persistent_browser = false if ie?
   end
 
