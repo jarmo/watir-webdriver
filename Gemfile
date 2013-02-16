@@ -4,5 +4,7 @@ unless ENV['TRAVIS']
   gem "simplecov", ">= 0.3.5", :platform => :ruby_19
 end
 
+gem "parallel_tests" if ENV['TRAVIS']
+
 # Specify your gem's dependencies in watir-webdriver.gemspec
 gemspec
