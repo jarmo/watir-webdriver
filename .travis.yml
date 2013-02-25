@@ -11,3 +11,4 @@ env:
 matrix:
   allow_failures:
     - rvm: ruby-head
+    - env: WATIR_WEBDRIVER_BROWSER=internet_explorer
