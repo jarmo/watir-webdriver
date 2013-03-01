@@ -6,7 +6,7 @@ require 'watir-webdriver/version'
 Bundler::GemHelper.install_tasks
 
 require 'rspec/core/rake_task'
-run_in_parallel = ENV["WATIR_WEBDRIVER_BROWSER"] == "internet_explorer" && WatirSpec.platform != :windows
+run_in_parallel = ENV["WATIR_WEBDRIVER_BROWSER"] == "internet_explorer" && RUBY_PLATFORM !~ /mswin|msys|mingw/
 
 unless run_in_parallel
   RSpec::Core::RakeTask.new(:spec) do |spec|

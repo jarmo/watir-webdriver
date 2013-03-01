@@ -132,7 +132,7 @@ class ImplementationConfig
   def internet_explorer_args
     if WatirSpec.platform == :windows
       [:internet_explorer, {}]
-    else if ENV["SAUCE_LABS_USER"]
+    elsif ENV["SAUCE_LABS_USER"]
       capabilities = Selenium::WebDriver::Remote::Capabilities.internet_explorer
       capabilities.version = "10"
       capabilities.platform = "Windows 2012"
@@ -170,7 +170,7 @@ class ImplementationConfig
     remote_browser = WatirSpec.new_browser
     remote_browser.browser.name
   ensure
-    remote_browser.close
+    remote_browser.close if remote_browser
   end
 
   def native_events?
