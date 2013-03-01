@@ -136,13 +136,15 @@ class ImplementationConfig
       capabilities = Selenium::WebDriver::Remote::Capabilities.internet_explorer
       capabilities.version = "10"
       capabilities.platform = "Windows 2012"
-      capabilities.name = "watir-webdriver@Travis-CI"
-      capabilities.build = ENV["TRAVIS_JOB_NUMBER"]
-      capabilities["record-video"] = false
-      capabilities["record-screenshots"] = false
-      capabilities["sauce-advisor"] = false
-      capabilities["command-timeout"] = 60
-      capabilities["idle-timeout"] = 30
+      capabilities.merge!(
+        "name"               => "watir-webdriver@Travis-CI"
+        "build"              => ENV["TRAVIS_JOB_NUMBER"],
+        "record-video"       => false,
+        "record-screenshots" => false,
+        "sauce-advisor"      => false,
+        "command-timeout"    => 60,
+        "idle-timeout"       => 30
+      )
       [:remote, {:url => "http://#{ENV["SAUCE_LABS_USER"]}:#{ENV["SAUCE_LABS_ACCESS_KEY"]}@ondemand.saucelabs.com:80/wd/hub", :desired_capabilities => capabilities}]
     end
   end
