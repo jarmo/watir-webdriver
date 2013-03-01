@@ -137,7 +137,7 @@ class ImplementationConfig
       capabilities.version = "10"
       capabilities.platform = "Windows 2012"
       capabilities.merge!(
-        "name"               => "watir-webdriver@Travis-CI"
+        "name"               => "watir-webdriver@Travis-CI",
         "build"              => ENV["TRAVIS_JOB_NUMBER"],
         "record-video"       => false,
         "record-screenshots" => false,
