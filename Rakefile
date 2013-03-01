@@ -17,7 +17,7 @@ unless run_in_parallel
 else
   desc "Run RSpec code examples in parallel"
   task :spec do
-    sh "bundle exec parallel_rspec -n#{ENV["SAUCE_LABS_PARALLEL_COUNT"] spec/input_spec.rb"
+    sh "bundle exec parallel_rspec -n#{ENV["SAUCE_LABS_PARALLEL_COUNT"]} spec/input_spec.rb"
   end
 end
 
