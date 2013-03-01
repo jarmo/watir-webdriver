@@ -6,7 +6,8 @@ notifications:
 before_script:
   - support/travis.sh
 env:
-  - WATIR_WEBDRIVER_BROWSER=internet_explorer PREFER_CSS=1 SAUCE_LABS_USER=jarmo SAUCE_LABS_ACCESS_KEY=8c82695c-d923-4bc4-9102-d4159925e7a5
+  - secure: "FCs9+sLjatYmpk+JsQePK90hE4gkbTD1Exj8JvZq6/q1tQUxXvgW1Ed4SIaj\nuugIBZ/FyTI3Pimm+K1+gKvfAZ8QLZfZA/9GZJc7Sqayh7j74J9dEmkP9XJj\nDB9E3X3Qh1KjNYuBX+XakThCQJXUXRcNvK2BznttnqXHYb5be4M="
+  - WATIR_WEBDRIVER_BROWSER=internet_explorer
 matrix:
   allow_failures:
-    - env: WATIR_WEBDRIVER_BROWSER=internet_explorer PREFER_CSS=1 SAUCE_LABS_USER=jarmo SAUCE_LABS_ACCESS_KEY=8c82695c-d923-4bc4-9102-d4159925e7a5 
+    - env: WATIR_WEBDRIVER_BROWSER=internet_explorer
