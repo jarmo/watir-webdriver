@@ -130,9 +130,9 @@ class ImplementationConfig
   end
 
   def internet_explorer_args
-    if Selenium::WebDriver::Platform.windows?
+    if WatirSpec.platform == :windows
       [:internet_explorer, {}]
-    else
+    else if ENV["SAUCE_LABS_USER"]
       capabilities = Selenium::WebDriver::Remote::Capabilities.internet_explorer
       capabilities.version = "10"
       capabilities.platform = "Windows 2012"
@@ -146,6 +146,8 @@ class ImplementationConfig
         "idle-timeout"       => 30
       )
       [:remote, {:url => "http://#{ENV["SAUCE_LABS_USER"]}:#{ENV["SAUCE_LABS_ACCESS_KEY"]}@ondemand.saucelabs.com:80/wd/hub", :desired_capabilities => capabilities}]
+    else
+      raise "Specs against Internet Explorer cannot be run when not using Windows or Sauce Labs!"
     end
   end
 

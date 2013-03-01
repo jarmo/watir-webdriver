@@ -6,7 +6,7 @@ require 'watir-webdriver/version'
 Bundler::GemHelper.install_tasks
 
 require 'rspec/core/rake_task'
-run_in_parallel = ENV["WATIR_WEBDRIVER_BROWSER"] == "internet_explorer" && ENV["SAUCE_LABS_USER"]
+run_in_parallel = ENV["WATIR_WEBDRIVER_BROWSER"] == "internet_explorer" && WatirSpec.platform != :windows
 
 unless run_in_parallel
   RSpec::Core::RakeTask.new(:spec) do |spec|
@@ -17,7 +17,7 @@ unless run_in_parallel
 else
   desc "Run RSpec code examples in parallel"
   task :spec do
-    sh "bundle exec parallel_rspec -n#{ENV["SAUCE_LABS_PARALLEL_COUNT"]} spec/input_spec.rb"
+    sh "bundle exec parallel_rspec -n#{ENV["SAUCE_LABS_PARALLEL_COUNT"] || 3} spec"
   end
 end
 
