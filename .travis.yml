@@ -6,8 +6,10 @@ notifications:
 before_script:
   - support/travis.sh
 env:
-  - secure: "FCs9+sLjatYmpk+JsQePK90hE4gkbTD1Exj8JvZq6/q1tQUxXvgW1Ed4SIaj\nuugIBZ/FyTI3Pimm+K1+gKvfAZ8QLZfZA/9GZJc7Sqayh7j74J9dEmkP9XJj\nDB9E3X3Qh1KjNYuBX+XakThCQJXUXRcNvK2BznttnqXHYb5be4M="
-  - WATIR_WEBDRIVER_BROWSER=internet_explorer
+  global:
+    - secure: "FCs9+sLjatYmpk+JsQePK90hE4gkbTD1Exj8JvZq6/q1tQUxXvgW1Ed4SIaj\nuugIBZ/FyTI3Pimm+K1+gKvfAZ8QLZfZA/9GZJc7Sqayh7j74J9dEmkP9XJj\nDB9E3X3Qh1KjNYuBX+XakThCQJXUXRcNvK2BznttnqXHYb5be4M="
+  matrix:
+    - WATIR_WEBDRIVER_BROWSER=internet_explorer
 matrix:
   allow_failures:
     - env: WATIR_WEBDRIVER_BROWSER=internet_explorer
