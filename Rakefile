@@ -16,7 +16,7 @@ else
   desc "Run RSpec code examples in parallel"
   task :spec do
     puts "Running in parallel"
-    sh "bundle exec parallel_rspec -n10 spec/browser_spec.rb"
+    sh "bundle exec parallel_rspec -n10 spec/input_spec.rb"
   end
 end
 
