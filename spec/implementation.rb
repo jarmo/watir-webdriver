@@ -141,9 +141,7 @@ class ImplementationConfig
         "build"              => ENV["TRAVIS_JOB_NUMBER"],
         "record-video"       => false,
         "record-screenshots" => false,
-        "sauce-advisor"      => false,
-        "command-timeout"    => 60,
-        "idle-timeout"       => 30
+        "sauce-advisor"      => false
       )
       [:remote, {:url => "http://#{ENV["SAUCE_LABS_USER"]}:#{ENV["SAUCE_LABS_ACCESS_KEY"]}@ondemand.saucelabs.com:80/wd/hub", :desired_capabilities => capabilities}]
     else
