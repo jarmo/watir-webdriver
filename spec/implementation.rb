@@ -67,8 +67,8 @@ class ImplementationConfig
   end
 
   def set_guard_proc
-    matching_browser = remote? ? remote_browser : browser
     browser_instance = WatirSpec.new_browser
+    matching_browser = browser_instance.name
     browser_version = browser_instance.driver.capabilities.version
     matching_browser_with_version = "#{matching_browser}#{browser_version}".to_sym
     matching_guards = [
@@ -99,7 +99,7 @@ class ImplementationConfig
       args.any? { |arg| matching_guards.include?(arg) }
     }
   ensure
-    browser_instance.close
+    browser_instance.close if browser_instance
   end
 
   def firefox_args
@@ -133,7 +133,7 @@ class ImplementationConfig
   def internet_explorer_args
     if WatirSpec.platform == :windows
       [:internet_explorer, {}]
-    elsif ENV["SAUCE_LABS_USER"]
+    elsif running_with_sauce_labs?
       capabilities = Selenium::WebDriver::Remote::Capabilities.internet_explorer
       capabilities.version = "10"
       capabilities.platform = "Windows 2012"
@@ -184,6 +184,10 @@ class ImplementationConfig
 
   def native_events_by_default?
     Selenium::WebDriver::Platform.windows? && [:firefox, :internet_explorer].include?(browser)
+  end
+
+  def running_with_sauce_labs?
+    !!ENV["SAUCE_LABS_USER"]
   end
 
   class SelectorListener < Selenium::WebDriver::Support::AbstractEventListener
