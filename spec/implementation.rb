@@ -12,8 +12,8 @@ class ImplementationConfig
     add_html_routes
 
     WatirSpec.always_use_server = mobile? || ie? || safari? || phantomjs? || remote?
-    puts "ParallelTests=#{defined?(ParallelTests)}"
-    WatirSpec.persistent_browser = false if defined?(ParallelTests)
+    # Do not use persistent browser when running specs with Parallel Tests.
+    WatirSpec.persistent_browser = false if ENV["TEST_ENV_NUMBER"]
   end
 
   private
