@@ -29,6 +29,5 @@ if [[ "$WATIR_WEBDRIVER_BROWSER" = "internet_explorer" ]]; then
   curl -L -O "http://saucelabs.com/downloads/Sauce-Connect-latest.zip"
   unzip -d Sauce-Connect Sauce-Connect-latest.zip
   java -version
-  java -jar Sauce-Connect/Sauce-Connect.jar $SAUCE_LABS_USER $SAUCE_LABS_ACCESS_KEY 1>sauce-connect.out &
-  while ! grep -q "Connected! You may start your tests." sauce-connect.out; do sleep 1; done
+  ruby -e "IO.popen(%Q|java -jar Sauce-Connect/Sauce-Connect.jar --readyfile sauce-connect-ready #{ENV['SAUCE_LABS_USER']} #{ENV['SAUCE_LABS_ACCESS_KEY']} 2>&1|); sleep 0.1 until File.exists?('sauce-connect-ready')"
 fi
